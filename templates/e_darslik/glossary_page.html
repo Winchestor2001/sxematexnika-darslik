@@ -1,0 +1,27 @@
+{% extends 'e_darslik/base.html' %}
+{% load static %}
+
+{% block title %}Resource{% endblock %}
+
+
+{% block content %}
+
+{% include 'e_darslik/includes/navbar2.html' %}
+
+<section class="glassary my-5">
+    <div class="container">
+        <div class="glass">
+            {% for glossary in glossaries %}
+            <button data-bs-toggle="popover" data-bs-trigger="focus" data-bs-title="{{ glossary.name }}"
+                    data-bs-content="{{ glossary.description }}"
+                    class="glass_item d-inline-block">
+                {{ glossary.name }}
+            </button>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include 'e_darslik/includes/footer.html' %}
+
+{% endblock %}

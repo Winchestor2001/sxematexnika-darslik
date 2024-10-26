@@ -6,6 +6,9 @@ class Scince(models.Model):
     slug_name = models.CharField(max_length=255)
     name = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = 'Nazariy kategoriya'
+
     def __str__(self):
         return self.name
 
@@ -15,6 +18,9 @@ class Theme(models.Model):
     theme = models.CharField(max_length=255)
     video = models.CharField(max_length=255, blank=True, null=True)
     body = models.FileField(upload_to='maruzalar/')
+
+    class Meta:
+        verbose_name = 'Nazariy'
 
     def __str__(self):
         return '{} - {}'.format(self.scince, self.theme)
@@ -30,6 +36,9 @@ class Quizes(models.Model):
     ball = models.IntegerField()
     timer = models.IntegerField(default=20, null=True, blank=True)
 
+    class Meta:
+        verbose_name = 'Quiz'
+
     def __str__(self):
         return '{} - {} - {}'.format(self.question, self.ball, self.timer)
 
@@ -39,6 +48,9 @@ class PractisTheme(models.Model):
     practis_id = models.IntegerField(blank=True, null=True)
     practis_name = models.CharField(max_length=255)
     practis_slug = models.SlugField(max_length=255)
+
+    class Meta:
+        verbose_name = 'Tajriba mashg`uloti'
 
     def __str__(self):
         return '{} - {}'.format(self.scince, self.practis_name)
@@ -77,6 +89,9 @@ class Post(models.Model):
 class ResourceCategory(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = 'E-resurslar kategoriasi'
+
     def __str__(self):
         return self.name
 
@@ -88,6 +103,9 @@ class Resource(models.Model):
     img = models.ImageField(upload_to='resource_img/', blank=True, null=True)
     file = models.FileField(upload_to='resource_file/', blank=True, null=True)
 
+    class Meta:
+        verbose_name = 'E-resurslar'
+
     def __str__(self):
         return self.name
 
@@ -95,6 +113,9 @@ class Resource(models.Model):
 class Video(models.Model):
     title = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = 'Videolar'
 
     def __str__(self):
         return self.title
